@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:printerlog/Data/model.dart';
+import 'package:printerlog/Pages/Timeline.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,8 +11,15 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Map<String, dynamic>> _journals = [];
+  int _selectedIndex = 0;
 
   bool _isLoading = true;
+
+  List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    Timeline(),
+    ProfilePage(),
+  ];
 
   void _refreshJournals() async {
     final data = await SQLHelper.getItems();
@@ -145,6 +153,9 @@ class _HomePageState extends State<HomePage> {
         onPressed: () => _showForm(null),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -159,6 +170,11 @@ class _HomePageState extends State<HomePage> {
             label: 'Calculator',
           ),
         ],
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
       ),
     );
   }
