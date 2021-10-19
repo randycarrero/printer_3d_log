@@ -1,6 +1,8 @@
 # printer Log
 
 A new Flutter project.
+Printer Log will have several features but the first focus will be project history log. when you mentain all the 3d jobs you had in the past. 
+there will be a timeline as when you had the job, most resin used, and most hours it took for a print. 
 
 ## Getting Started
 
