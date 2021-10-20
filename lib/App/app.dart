@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:printerlog/Data/model.dart';
 import 'package:printerlog/Pages/Timeline.dart';
+import 'package:printerlog/Pages/calculator.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     Timeline(),
-    ProfilePage(),
+    Calculator(),
   ];
 
   void _refreshJournals() async {
